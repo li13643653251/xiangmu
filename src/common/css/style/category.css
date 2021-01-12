@@ -1,0 +1,94 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.fenleiyeheader {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.btn {
+	position: relative;
+	margin: 2%;
+	width: 40px;
+	height: 40px;
+	padding: 5px 12px;
+}
+
+.btn .mix-icon {
+	font-size: 20px;
+}
+.fenleiyetongzhi{
+	position: absolute;
+	left: 30px;
+	top: 0;
+	text-align: center;
+	line-height: 15px;
+	width: 15px;
+	height: 15px;
+	background-color: red;
+	color: #FFFFFF;
+	border-radius: 50%;
+}
+.fenleiyeleft{
+	width: 25%;
+}
+.fenleiyeul{
+	background-color: #F5F5F5;
+}
+.fenleiyeli{
+	text-align: center;
+	line-height: 40px;
+	/* margin-top: 10px; */
+	
+	width: 100%;
+	height: 40px;
+	border-radius: 3px;
+	
+}
+.activeli{
+	background-color: #FFFFFF;
+	/* font-weight: 700; */
+}
+.fenleiyeright{
+	width: 75%;
+	background-color: #FFFFFF;
+	/* height: 100px; */
+}
+.fenleiyelunbo{
+	width: 100%;
+	height: 100px;
+}
+.fenleiyelunboitem{
+	width: 100%;
+	height: 100px;
+}
+.fenleiyeshop{
+	margin-top: 10px;
+}
+.fenleiyeshopul{
+	margin-top: 12px;
+	font-size: 9px;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: flex-start;
+	 /* align-content:flex-start; */
+}
+.fenleiyeshopul>li{
+	margin-left: 6%;
+	text-align: center;
+	list-style: none;
+	width: 25%;
+	height: 100%;
+}
+.catename{
+	/* width: 25%; */
+	height: 20px;
+	line-height: 10px;
+	overflow:hidden;      
+	text-overflow:ellipsis;     
+/* 	white-space:nowrap;   
+ */}
+
