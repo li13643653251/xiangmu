@@ -1,0 +1,201 @@
+<template>
+	<div>
+		<menutop :title="title"></menutop>
+		<div class="jiange">
+		</div>
+		<div>
+			<div class="stop">
+				<div class="stopleft">
+					<i class="el-icon-search"></i>
+					数据列表
+				</div>
+				<div>
+					<el-button>导出数据</el-button>
+					<!-- <el-button>生成品牌首字母</el-button> -->
+				</div>
+			</div>         
+			<div class="shopalllist">
+				<el-table ref="multipleTable" @selection-change="handleSelectionChange" :data="tableData" :border="true">
+					<el-table-column type="selection">
+					</el-table-column>	
+					<el-table-column prop="id" label="单据编号">
+					</el-table-column>
+					<el-table-column prop="spuName" label="发货点名称">
+					</el-table-column>
+					<el-table-column prop="spuName" label="默认发货信息">
+					</el-table-column>
+					<el-table-column prop="spuName" label="默认退货信息">
+					</el-table-column>
+					<el-table-column prop="spuName" label="发货人姓名">
+					</el-table-column>
+					<el-table-column prop="spuName" label="地址">
+					</el-table-column>
+					<el-table-column prop="spuName" label="联系电话">
+					</el-table-column>
+					<el-table-column label="操作">
+						<template slot-scope="scope">
+							<el-button type="text" @click="handleClick(scope.row)" size="small">编辑 </el-button>
+						
+							<el-button type="text" size="small">删除</el-button>
+						</template>
+					</el-table-column>
+				</el-table>
+				<div class="shoplistbutton">
+					<div>
+						<el-button @click="toggleSelection(tableData)">全选</el-button>
+						<el-select v-model="value" clearable placeholder="批量操作" style="width: 100px; margin-left: 50px;">
+							<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+							</el-option>
+						</el-select>
+						<el-button>确定</el-button>
+					</div>
+					<div>
+						<el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="1"
+						 :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
+						</el-pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+	import menutop from "../../components/menutop.vue" //标题
+	
+	export default {
+		data(){
+			return {
+				value:"",
+				title:"发货点信息管理",
+				tableData: [{
+					date: '2016-05-02',
+					name: '王小虎',
+					province: '上海',
+					city: '普陀区',
+					address: '上海市普陀区金沙',
+					zip: 200333
+				}, {
+					date: '2016-05-04',
+					name: '王小虎',
+					province: '上海',
+					city: '普陀区',
+					address: '上海市普陀区金沙江',
+					zip: 200333
+				}, {
+					date: '2016-05-01', 
+					name: '王小虎',
+					province: '上海',
+					city: '普陀区',
+					address: '上海市普陀区金沙江',
+					zip: 200333
+				}, {
+					date: '2016-05-03',
+					name: '王小虎',
+					province: '上海',
+					city: '普陀区',
+					address: '上海市普陀区金沙',
+					zip: 200333
+				}],
+				options:[]
+			}
+		},
+		components: {
+			menutop	
+		},
+		methods:{
+			// 当前页数的数据数量
+			handleSizeChange(val) {
+				console.log(`每页 ${val} 条`);
+			},
+			// 当前页数
+			handleCurrentChange(val) {
+				this.$emit('fromChild', val)
+				console.log(`当前页: ${val}`);
+			},
+			// 表格选择
+			handleSelectionChange(val) {
+				this.multipleSelection = val;
+				console.log(this.multipleSelection)
+			},
+			handleClick(row) {
+				console.log(row);
+			},
+			// 全选
+			toggleSelection(rows) {
+				console.log(this.$refs.multipleTable)
+				if (rows) {
+					rows.forEach(row => {
+						this.$refs.multipleTable.toggleRowSelection(row);
+					});
+				} else {
+					this.$refs.multipleTable.clearSelection();
+				}
+			},
+			
+		}
+		
+	}
+</script>
+
+<style>
+	.sousuo {
+		width: 100%;
+		/* height: 100px; */
+		/* border: 1px solid black; */
+	}
+	.shopalllist{
+		background-color: #FFFFFF;
+	}
+	.stop {
+		background-color: #F3F3F3;
+		width: 100%;
+		height: 50px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		text-align: center;
+		line-height: 50px;
+	}
+	.sbuttom {
+		display: flex;
+		width: 100%;
+		height: 50px;
+		align-items: center;
+		background-color: #FFFFFF;
+		/* justify-content: center; */
+	}
+	.iptone {
+		width: 200px;
+	}
+	.toptitle {
+		display: flex;
+		justify-content: space-between;
+		line-height: 50px;
+		width: 100%;
+		height: 50px;
+	}
+	.toptitle>div {
+		margin: 0 20px;
+	}
+	.fenye {
+		background-color: rgba(253, 253, 254, 1);
+		width: 100%;
+		height: 50px;
+	}
+	.fenleifenye {
+		height: 30px;
+		margin-top: 10px;
+		float: right;
+	}
+	.jiange {
+		width: 100%;
+		height: 20px;
+	}
+	.shoplistbutton {
+		margin-top: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+</style>

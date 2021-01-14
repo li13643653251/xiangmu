@@ -1,67 +1,25 @@
-<script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		},
-
-	
-	}
-</script>
+<template>
+  <div id="app">
+    <router-view/>
+  </div>
+</template>
 
 <style>
-	/*每个页面公共css */
-	@import url("./common/css/restul.css");
-	@import url("./common/css/common.css");
-	@import url("./common/css/icon.css");
-	@import "./wxcomponents/vant/dist/common/index.wxss";
-	page{
-	  height: 100%;
-	  display: flex;
-	  flex-direction: column;
-	}
-	/* @import "./wxcomponents/vant/common/index.wxss"; */
-	:not(not) {
-		font-family: "Microsoft YaHei";
-		/* font-size: 14px; */
-	}
-
-	.size12 {
-		font-size: 12px ;
-		/* color: #AEAEAE; */
-	}
-	.size14 {
-		font-size: 14px ;
-		/* color: #AEAEAE; */
-	}
-    .huise{
-		color: #AEAEAE;
-	}
-	.size16 {
-		font-size: 16px;
-		color: #AEAEAE;
-	}
-
-	.size18 {
-		font-size: 18px;
-	}
-     .jianju{
-		 letter-spacing:2px
-	 }
-	img {
+	@import url("assets/style/reset.css");
+	html,body{
 		width: 100%;
 		height: 100%;
-		
 	}
-	.radioimg{
-		border-radius: 8%;
+	#app {
+	  width: 100%;
+	  height: 100%;
+	  /* overflow: hidden; */
 	}
-	.qianhuise{
-		color: #3F3F3F;
+	.el-main{
+		padding: 0;
 	}
+	/* .el-tabs__nav-scroll{
+		display: none;
+	} */
+
 </style>
